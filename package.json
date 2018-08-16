@@ -1,0 +1,21 @@
+{
+  "name": "cg6-lea",
+  "version": "0.0.1",
+  "description": "external apps demos",
+  "main": "none",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sfdx shane:org:delete; ./orgInit.sh",
+    "reset-data": "sfdx force:apex:execute -f scripts/dataWipe.cls && sfdx force:apex:execute -f scripts/init.cls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mshanemc/cg6-lea.git"
+  },
+  "author": "Shane McLaughlin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mshanemc/cg6-lea/issues"
+  },
+  "homepage": "https://github.com/mshanemc/cg6-lea#readme"
+}

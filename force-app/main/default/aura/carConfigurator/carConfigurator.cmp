@@ -1,0 +1,21 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+  <aura:attribute name="types" type="object[]" />
+  <aura:attribute name="sedans" type="object[]" />
+  <aura:attribute name="suvs" type="object[]" />
+
+  <lightning:layout>
+    <aura:iteration items="{!v.sedans}" var="car">
+
+      <lightning:layoutItem>
+        <lightning:layout>
+          <lightning:layoutItem>
+            {!car.label}
+
+          </lightning:layoutItem>
+        </lightning:layout>
+      </lightning:layoutItem>
+
+    </aura:iteration>
+
+  </lightning:layout>
+</aura:component>
