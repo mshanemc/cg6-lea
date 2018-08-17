@@ -1,2 +1,7 @@
-.THIS {
+.THIS .description{
+    min-height: 50px;
+}
+
+.THIS img {
+  width: 100%;
 }
