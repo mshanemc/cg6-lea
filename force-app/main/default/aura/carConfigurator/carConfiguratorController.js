@@ -10,7 +10,39 @@
                         description: 'Experience uncluttered design with cutting-edge innovation creating a calming Scandinavian sanctuary.',
                         mpg: 29,
                         hp: '250-400',
-                        img: 'https://cas.volvocars.com/image/vbsNext-v4/exterior/MY17_1617/256/10/52/61400/R118/_/TP03/_/_/_/_/SR03/_/_/JB07/T211/SideModelpage.jpg?bg=ffffff&market=us&fallback=1&w=375'
+                        img: 'https://cas.volvocars.com/image/vbsNext-v4/exterior/MY17_1617/256/10/52/61400/R118/_/TP03/_/_/_/_/SR03/_/_/JB07/T211/SideModelpage.jpg?bg=ffffff&market=us&fallback=1&w=375',
+                        options: [{
+                            engine: [
+                                {
+                                    name: 'T5 FWD',
+                                    hp: 250,
+                                    torque: '258',
+                                    mpg: '29',
+                                    price: 46900
+                                },
+                                {
+                                    name: 'T5 AWD',
+                                    hp: 250,
+                                    torque: '258',
+                                    mpg: '28',
+                                    price: 49100
+                                },
+                                {
+                                    name: 'T6 AWD',
+                                    hp: 316,
+                                    torque: '295',
+                                    mpg: '27',
+                                    price: 54350
+                                },
+                                {
+                                    name: 'T8 eAWD Plug-in Hybrid',
+                                    hp: 400,
+                                    torque: '472',
+                                    mpg: '27',
+                                    price: 64950
+                                }
+                            ]
+                        }]
                     },
                     {
                         label: 'XC60',
@@ -66,6 +98,10 @@
         console.log(vehicle);
         component.set('v.selectedVehicle', vehicle);
         component.set('v.vehicles', component.get('v.vehicles').find(item => item.label === vehicle));
+    },
+
+    testDrive : function(component, event, helper) {
+        console.log('test drive schedule button click')
     },
 })
 
