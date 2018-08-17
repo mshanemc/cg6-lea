@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sfdx shane:org:delete; ./orgInit.sh",
-    "deployability": "sfdx shane:org:delete -u deployTargetTest && sfdx force:org:create -f config/project-scratch-def.json -d 1 -a deployTargetTest && sfdx force:source:push -u deployTargetTest",
+    "deployability": "sfdx shane:org:delete -u deployTargetTest; sfdx force:org:create -f config/project-scratch-def.json -d 1 -a deployTargetTest && sfdx force:source:push -u deployTargetTest",
+    "destroy": "sfdx shane:org:delete",
     "reset-data": "sfdx force:apex:execute -f scripts/dataWipe.cls && sfdx force:apex:execute -f scripts/init.cls"
   },
   "repository": {
