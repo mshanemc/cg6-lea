@@ -3,6 +3,8 @@
 
   <aura:attribute name="selectedVehicle" type="string" />
   <aura:attribute name="vehicles" type="object[]" />
+  <aura:attribute name="testDrive" type="boolean" default="false" />
+  <aura:attribute name="now" type="string" />
 
   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
@@ -74,7 +76,7 @@
 
   </lightning:layout>
 
-  <aura:if isTrue="{!v.selectedVehicle}">
+  <aura:if isTrue="{!and(v.selectedVehicle, !v.testDrive)}">
     <lightning:button variant="brand" label="Schedule Test Drive" title="Schedule Test Drive" onclick="{! c.testDrive }" class="slds-align_absolute-center" />
 
     <lightning:accordion activeSectionName="Engine" class="slds-m-top_medium">
@@ -142,6 +144,14 @@
 
     <lightning:button variant="brand" label="Schedule Test Drive" title="Schedule Test Drive" onclick="{! c.testDrive }" class="slds-align_absolute-center" />
 
+  </aura:if>
+
+  <aura:if isTrue="{!v.testDrive}">
+    <div class="slds-text-heading_medium">
+      Volvo Cars of the Woodlands
+    </div>
+    TODO: something about a google map (216?)
+    <lightning:input type="datetime" name="input1" label="Test drive when?" />
   </aura:if>
 
 </aura:component>

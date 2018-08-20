@@ -93,16 +93,20 @@
         component.set('v.vehicles', component.get('v.data').find(item => item.label === tab).vehicles);
     },
 
-    vehicleSelect : function(component, event, helper) {
+    vehicleSelect : function(component) {
+        console.log(event);
+        console.log(event.getSource());
+
         var vehicle = event.getSource().get('v.value');
         console.log(vehicle);
         component.set('v.selectedVehicle', vehicle);
         component.set('v.vehicles', component.get('v.vehicles').find(item => item.label === vehicle));
     },
 
-    testDrive : function(component, event, helper) {
-        console.log('test drive schedule button click')
-    },
+    testDrive : function(component) {
+        component.set('v.now', new Date().toJSON());
+        component.set('v.testDrive', true);
+    }
 })
 
 
