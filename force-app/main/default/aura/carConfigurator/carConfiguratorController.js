@@ -93,7 +93,7 @@
         component.set('v.vehicles', component.get('v.data').find(item => item.label === tab).vehicles);
     },
 
-    vehicleSelect : function(component) {
+    vehicleSelect : function(component, event) {
         console.log(event);
         console.log(event.getSource());
 
