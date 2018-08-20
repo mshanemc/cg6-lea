@@ -10,6 +10,14 @@
     "destroy": "sfdx shane:org:delete",
     "reset-data": "sfdx force:apex:execute -f scripts/dataWipe.cls && sfdx force:apex:execute -f scripts/init.cls"
   },
+  "nodemonConfig": {
+    "watch": [
+      "force-app"
+    ],
+    "exec": "sfdx force:source:push",
+    "ext": "cls,xml,json,js,trigger,cmp,css,design,svg",
+    "delay": "2500"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mshanemc/cg6-lea.git"
@@ -19,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/mshanemc/cg6-lea/issues"
   },
-  "homepage": "https://github.com/mshanemc/cg6-lea#readme"
+  "homepage": "https://github.com/mshanemc/cg6-lea#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
 }
