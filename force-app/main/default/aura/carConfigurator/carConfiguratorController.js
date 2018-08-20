@@ -106,6 +106,14 @@
     testDrive : function(component) {
         component.set('v.now', new Date().toJSON());
         component.set('v.testDrive', true);
+    },
+
+    testDrive2: function () {
+        // component.find('notifLib').showToast({
+        //     "message": "Test drive scheduled!",
+        // });
+
+        $A.get("e.force:showToast").setParams({"type" : "info", "message" : "Thanks for scheduling a test drive!"}).fire();
     }
 })
 

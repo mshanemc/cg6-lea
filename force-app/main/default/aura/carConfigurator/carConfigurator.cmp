@@ -8,6 +8,8 @@
 
   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
+  <lightning:notificationsLibrary aura:id="notifLib" />
+
   <aura:if isTrue="{!!v.selectedVehicle}">
     <lightning:tabset>
       <lightning:tab onactive="{!c.tabChange}" label="SUV" id="SUV"/>
@@ -147,11 +149,21 @@
   </aura:if>
 
   <aura:if isTrue="{!v.testDrive}">
-    <div class="slds-text-heading_medium">
-      Volvo Cars of the Woodlands
-    </div>
-    TODO: something about a google map (216?)
-    <lightning:input type="datetime" name="input1" label="Test drive when?" />
+    <lightning:layout horizontalAlign="space" verticalAlign="stretch" multipleRows="true">
+      <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4" class="slds-m-vertical_medium">
+        <div class="slds-text-heading_medium">
+          Volvo Cars of the Woodlands
+        </div>
+        <a href="https://www.google.com/maps/dir//16785+A+Interstate+45+S/">
+          <img src="https://maps.googleapis.com/maps/api/staticmap?center=16785+A+Interstate+45+S&amp;zoom=13&amp;scale=1&amp;size=600x300&amp;maptype=roadmap&amp;format=png&amp;visual_refresh=true&amp;markers=size:mid%7Ccolor:0xff0000%7Clabel:%7C16785+A+Interstate+45+S"
+          />
+        </a>
+      </lightning:layoutItem>
+      <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4" class="slds-m-vertical_medium">
+        <lightning:input type="datetime" name="input1" label="Test drive when?" min="{!v.now}" />
+        <lightning:button variant="brand" label="Schedule Test Drive" title="Schedule Test Drive" onclick="{! c.testDrive2 }" class="slds-align_absolute-center" />
+      </lightning:layoutItem>
+    </lightning:layout>
   </aura:if>
 
 </aura:component>
