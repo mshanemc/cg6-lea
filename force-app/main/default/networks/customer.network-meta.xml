@@ -25,20 +25,7 @@
     <forgotPasswordTemplate>unfiled$public/CommunityForgotPasswordEmailTemplate</forgotPasswordTemplate>
     <gatherCustomerSentimentData>false</gatherCustomerSentimentData>
     <navigationLinkSet>
-        <navigationMenuItem>
-            <label>Configure</label>
-            <position>1</position>
-            <publiclyAvailable>true</publiclyAvailable>
-            <target>/configure</target>
-            <type>InternalLink</type>
-        </navigationMenuItem>
-        <navigationMenuItem>
-            <label>My Volvo</label>
-            <position>2</position>
-            <publiclyAvailable>false</publiclyAvailable>
-            <target>/my-volvo</target>
-            <type>InternalLink</type>
-        </navigationMenuItem>
+
     </navigationLinkSet>
     <networkMemberGroups>
         <profile>admin</profile>
