@@ -5,7 +5,7 @@
   <aura:attribute name="vehicles" type="object[]" />
   <aura:attribute name="testDrive" type="boolean" default="false" />
   <aura:attribute name="now" type="string" />
-  <aura:attribute name="measurements" type="string" />
+  <aura:attribute name="measurements" type="string" default="US"/>
 
   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
@@ -19,13 +19,15 @@
     </lightning:tabset>
   </aura:if>
 
+  <!-- vehicle selection, or the single selected vehicle -->
   <lightning:layout horizontalAlign="space" verticalAlign="stretch" multipleRows="true">
     <aura:iteration items="{!v.vehicles}" var="car">
 
       <lightning:layoutItem size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="4">
-        <lightning:layout horizontalAlign="center">
-          <lightning:layoutItem padding="around-medium" >
+        <lightning:layout horizontalAlign="center" verticalAlign="stretch" class="slds-grid_vertical">
+          <lightning:layoutItem padding="around-medium" flexibility="no-grow">
 
+            <!-- car name and action button -->
             <lightning:layout horizontalAlign="spread">
               <lightning:layoutItem>
                 <div class="slds-text-heading_large slds-text-align_center">
@@ -43,37 +45,64 @@
                 </lightning:layoutItem>
               </aura:if>
             </lightning:layout>
+          </lightning:layoutItem>
 
+          <lightning:layoutItem padding="around-medium" flexibility="no-grow">
             <img src="{!car.img}" class="slds-p-vertical_medium"/>
+          </lightning:layoutItem>
 
-            <aura:if isTrue="{!!v.selectedVehicle}">
-              <div class="slds-text-heading_small description slds-p-vertical_medium">
-                {!car.description}
-              </div>
+          <aura:if isTrue="{!!v.selectedVehicle}">
+            <lightning:layoutItem padding="around-medium" flexibility="auto" class="slds-text-heading_small description slds-p-vertical_medium">
+              {!car.description}
+            </lightning:layoutItem>
+
+            <lightning:layoutItem padding="around-medium" flexibility="no-grow">
 
               <lightning:layout horizontalAlign="space" verticalAlign="stretch" >
-                <lightning:layoutItem>
-                  <div class="slds-text-heading_large slds-text-align_center">
-                    {!car.mpg}
-                  </div>
-                  <div class="slds-text-heading_small slds-text-color_weak slds-text-align_center">
-                    MPG HWY
-                  </div>
-                </lightning:layoutItem>
-                <lightning:layoutItem>
-                  <div class="slds-text-heading_large slds-text-align_center">
-                    {!car.hp}
-                  </div>
-                  <div class="slds-text-heading_small slds-text-color_weak slds-text-align_center">
-                    Horsepower
-                  </div>
-                </lightning:layoutItem>
+                <aura:if isTrue="{!v.measurements=='US' }">
+                  <lightning:layoutItem>
+                      <div class="slds-text-heading_large slds-text-align_center">
+                        {!car.mpg}
+                      </div>
+                      <div class="slds-text-heading_small slds-text-color_weak slds-text-align_center">
+                        MPG HWY
+                      </div>
+                    </lightning:layoutItem>
+                    <lightning:layoutItem>
+                      <div class="slds-text-heading_large slds-text-align_center">
+                        {!car.hp}
+                      </div>
+                      <div class="slds-text-heading_small slds-text-color_weak slds-text-align_center">
+                        Horsepower
+                      </div>
+                    </lightning:layoutItem>
+                </aura:if>
+
+                <aura:if isTrue="{!v.measurements!='US' }">
+                  <lightning:layoutItem>
+                    <div class="slds-text-heading_large slds-text-align_center">
+                      {!car.L100km}
+                    </div>
+                    <div class="slds-text-heading_small slds-text-color_weak slds-text-align_center">
+                      L/100km
+                    </div>
+                  </lightning:layoutItem>
+                  <lightning:layoutItem>
+                    <div class="slds-text-heading_large slds-text-align_center">
+                      {!car.kW}
+                    </div>
+                    <div class="slds-text-heading_small slds-text-color_weak slds-text-align_center">
+                      kW
+                    </div>
+                  </lightning:layoutItem>
+                </aura:if>
               </lightning:layout>
-            </aura:if>
-          </lightning:layoutItem>
+            </lightning:layoutItem>
+          </aura:if>
+
         </lightning:layout>
 
-      </lightning:layoutItem>
+      </lightning:layoutItem> <!-- each vehicle -->
 
     </aura:iteration>
 
