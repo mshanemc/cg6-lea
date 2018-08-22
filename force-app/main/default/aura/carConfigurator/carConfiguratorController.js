@@ -100,25 +100,15 @@
 
         ]);
         component.set('v.markers', [
-            // {
-            //     location: {
-            //         'City': 'The Woodlands',
-            //         'Country': 'USA',
-            //         'PostalCode': '77385',
-            //         'State': 'TX',
-            //         'Street': '16785 A Interstate 45 S'
-            //     },
-            //     title: 'Volvo Cars of the Woodlands'
-            // },
             {
                 location: {
-                    'City': 'San Francisco',
+                    'City': 'The Woodlands',
                     'Country': 'USA',
-                    'PostalCode': '94105',
-                    'State': 'CA',
-                    'Street': 'The Landmark @ One Market, Suite 300'
+                    'PostalCode': '77385',
+                    'State': 'TX',
+                    'Street': '16785 A Interstate 45 S'
                 },
-                title: 'The Landmark Building'
+                title: 'Volvo Cars of the Woodlands'
             }
         ]);
 
@@ -136,6 +126,7 @@
         var vehicle = event.getSource().get('v.value');
         console.log(vehicle);
         component.set('v.selectedVehicle', vehicle);
+        component.set('v.testDrive', false);
         component.set('v.vehicles', component.get('v.vehicles').find(item => item.label === vehicle));
     },
 
