@@ -99,6 +99,28 @@
             },
 
         ]);
+        component.set('v.markers', [
+            // {
+            //     location: {
+            //         'City': 'The Woodlands',
+            //         'Country': 'USA',
+            //         'PostalCode': '77385',
+            //         'State': 'TX',
+            //         'Street': '16785 A Interstate 45 S'
+            //     },
+            //     title: 'Volvo Cars of the Woodlands'
+            // },
+            {
+                location: {
+                    'City': 'San Francisco',
+                    'Country': 'USA',
+                    'PostalCode': '94105',
+                    'State': 'CA',
+                    'Street': 'The Landmark @ One Market, Suite 300'
+                },
+                title: 'The Landmark Building'
+            }
+        ]);
 
     },
 
