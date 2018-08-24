@@ -1,3 +1,0 @@
-<design:component >
-  	<design:attribute name="measurements" label="Measurement system" datasource="US, Metric" />
-</design:component>
