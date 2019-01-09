@@ -1,4 +1,4 @@
-sfdx shane:org:create -f config/project-scratch-def.json -d 1 -s -o df18.booth -u cg6_
+sfdx shane:org:create -f config/project-scratch-def.json -d 1 -s -o df18.booth --userprefix cg6_
 sfdx shane:github:package:install --githubuser mshanemc --repo volvo-base
 sfdx shane:github:package:install -g mshanemc -r community-boilerplate
 sfdx shane:github:src:install -g mshanemc -r customer-community-base
